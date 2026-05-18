@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Submission {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  site         String
+  nom          String
+  prenom       String
+  adresse      String
+  email        String
+  documentName String
+  documentPath String?
+  dropDate     String
+  dropTime     String
+  epiDate      String
+  epiTime      String
+  status       String   @default("pending")
+  notes        String?
+  validatedBy  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
