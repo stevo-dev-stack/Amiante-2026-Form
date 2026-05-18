@@ -268,7 +268,7 @@ export default function AdminDashboard({
             SITCOM
           </span>
           <span style={{ color: "rgba(255,255,255,0.6)", fontSize: 13 }}>
-            Administration Amiante 2026
+            Administration Collecte Amiante 2026
           </span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
