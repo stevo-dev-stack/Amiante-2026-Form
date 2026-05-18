@@ -654,7 +654,16 @@ export default function AmianteForm() {
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
 
-  const [addressSuggestions, setAddressSuggestions] = useState<any[]>([]);
+  type AddressFeature = {
+    properties: {
+      id: string;
+      name: string;
+      postcode: string;
+      city: string;
+    };
+  };
+
+  const [addressSuggestions, setAddressSuggestions] = useState<AddressFeature[]>([]);
   const searchTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleAddressSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -678,7 +687,7 @@ export default function AmianteForm() {
     }, 300);
   };
 
-  const selectAddress = (feature: any) => {
+  const selectAddress = (feature: AddressFeature) => {
     const props = feature.properties;
     setStreet(props.name);
     setPostcode(props.postcode);

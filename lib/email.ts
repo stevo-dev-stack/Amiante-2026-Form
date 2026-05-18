@@ -1,4 +1,16 @@
-export async function sendValidationEmail(submission: any) {
+type EmailSubmission = {
+  email: string;
+  code: string;
+  prenom: string;
+  nom: string;
+  epiDate: string;
+  epiTime: string;
+  dropDate: string;
+  dropTime: string;
+  site: string;
+};
+
+export async function sendValidationEmail(submission: EmailSubmission) {
   // TODO: Replace with an actual email provider like Nodemailer or Resend
   console.log("=================================================");
   console.log("📧 MOCK EMAIL DISPATCHED (VALIDATION)");
@@ -32,7 +44,7 @@ L'équipe SITCOM.
   return true;
 }
 
-export async function sendInitialConfirmationEmail(submission: any) {
+export async function sendInitialConfirmationEmail(submission: EmailSubmission) {
   console.log("=================================================");
   console.log("📧 MOCK EMAIL DISPATCHED (INITIAL REGISTRATION)");
   console.log(`To: ${submission.email}`);
